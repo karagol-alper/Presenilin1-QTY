@@ -1,0 +1,427 @@
+[INFO   ] Starting gmx_MMPBSA 1.6.4
+[DEBUG  ] WDIR          : /content/drive/MyDrive/MD/PS1QTY/mmpbsa/bold2
+[DEBUG  ] AMBERHOME     : 
+[DEBUG  ] PYTHON EXE    : /usr/local/bin/python
+[DEBUG  ] PYTHON VERSION: 3.12.12 (main, Oct 10 2025, 08:52:57) [GCC 11.4.0]
+[DEBUG  ] MPI           : /usr/bin/mpirun
+[DEBUG  ] ParmEd        : 4.3.0
+[DEBUG  ] OS PLATFORM   : Linux-6.6.105+-x86_64-with-glibc2.35
+[DEBUG  ] OS SYSTEM     : Linux
+[DEBUG  ] OS VERSION    : #1 SMP Thu Oct  2 10:42:05 UTC 2025
+[DEBUG  ] OS PROCESSOR  : x86_64
+
+[INFO   ] Command-line
+  mpirun -np 2 gmx_MMPBSA -O -i mmpbsa.in.txt -cs step5_1.tpr -ci index.ndx -cp topol.top -cg 1 2 -ct fixed.trr -o FINAL_RESULTS_MMPBSA.dat -eo FINAL_RESULTS_MMPBSA.csv -do FINAL_DECOMP_MMPBSA.dat -deo FINAL_DECOMP_MMPBSA.csv
+
+[DEBUG  ] |Input file:
+[DEBUG  ] |--------------------------------------------------------------
+[DEBUG  ] |Sample input file for GB calculation
+[DEBUG  ] |This input file is meant to show only that gmx_MMPBSA works. Althought,
+[DEBUG  ] |we tried to used the input files as recommended in the Amber manual,
+[DEBUG  ] |some parameters have been changed to perform more expensive calculations
+[DEBUG  ] |in a reasonable amount of time. Feel free to change the parameters 
+[DEBUG  ] |according to what is better for your system.
+[DEBUG  ] |
+[DEBUG  ] |&general
+[DEBUG  ] |sys_name="Prot-Prot",
+[DEBUG  ] |startframe=1,
+[DEBUG  ] |endframe=500,
+[DEBUG  ] |forcefields="leaprc.protein.ff14SB",
+[DEBUG  ] |/
+[DEBUG  ] |&gb
+[DEBUG  ] |igb=2, saltcon=0.150,
+[DEBUG  ] |/
+[DEBUG  ] |&decomp
+[DEBUG  ] |idecomp=2, dec_verbose=3,
+[DEBUG  ] |print_res="within 4"
+[DEBUG  ] |/--------------------------------------------------------------
+[DEBUG  ] 
+[INFO   ] Checking mmpbsa.in.txt input file...
+[INFO   ] Checking mmpbsa.in.txt input file...Done.
+
+[INFO   ] Checking external programs...
+[INFO   ] cpptraj found! Using /root/miniconda3/envs/gmxMMPBSA/bin/cpptraj
+[INFO   ] tleap found! Using /root/miniconda3/envs/gmxMMPBSA/bin/tleap
+[INFO   ] parmchk2 found! Using /root/miniconda3/envs/gmxMMPBSA/bin/parmchk2
+[INFO   ] sander found! Using /root/miniconda3/envs/gmxMMPBSA/bin/sander
+[INFO   ] Using GROMACS version > 5.x.x!
+[INFO   ] gmx found! Using /root/miniconda3/bin/gmx
+[INFO   ] Checking external programs...Done.
+
+[INFO   ] Building AMBER topologies from GROMACS files...
+[INFO   ] Get PDB files from GROMACS structures files...
+[INFO   ] Making gmx_MMPBSA index for complex...
+[DEBUG  ] Running command: echo -e "name 1 GMXMMPBSA_REC\n name 2 GMXMMPBSA_LIG\n  1 | 2\n q\n" | /root/miniconda3/bin/gmx make_ndx -n index.ndx -o _GMXMMPBSA_COM_index.ndx -f step5_1.tpr
+[DEBUG  ]                :-) GROMACS - gmx make_ndx, 2024.3-conda_forge (-:
+[DEBUG  ] 
+[DEBUG  ] Executable:   /root/miniconda3/bin.AVX2_256/gmx
+[DEBUG  ] Data prefix:  /root/miniconda3
+[DEBUG  ] Working dir:  /content/drive/MyDrive/MD/PS1QTY/mmpbsa/bold2
+[DEBUG  ] Command line:
+[DEBUG  ]   gmx make_ndx -n index.ndx -o _GMXMMPBSA_COM_index.ndx -f step5_1.tpr
+[DEBUG  ] 
+[DEBUG  ] 
+[DEBUG  ] Reading structure file
+[DEBUG  ] Reading file step5_1.tpr, VERSION 2024.3 (single precision)
+[DEBUG  ] Reading file step5_1.tpr, VERSION 2024.3 (single precision)
+[DEBUG  ] 
+[DEBUG  ] GROMACS reminds you: "Try to calculate the numbers that have been" (The Smoke Fairies)
+[DEBUG  ] 
+[DEBUG  ] Going to read 1 old index file(s)
+[DEBUG  ] 
+[DEBUG  ]   0 System              : 344893 atoms
+[DEBUG  ]   1 Protein1            :  5847 atoms
+[DEBUG  ]   2 Protein2            :  1653 atoms
+[DEBUG  ]   3 Protein-H           :  3835 atoms
+[DEBUG  ]   4 C-alpha             :   483 atoms
+[DEBUG  ]   5 Backbone            :  1449 atoms
+[DEBUG  ]   6 MainChain           :  1930 atoms
+[DEBUG  ]   7 MainChain+Cb        :  2387 atoms
+[DEBUG  ]   8 MainChain+H         :  2395 atoms
+[DEBUG  ]   9 SideChain           :  5105 atoms
+[DEBUG  ]  10 SideChain-H         :  1905 atoms
+[DEBUG  ]  11 Prot-Masses         :  7500 atoms
+[DEBUG  ]  12 non-Protein         : 337393 atoms
+[DEBUG  ]  13 Other               : 337393 atoms
+[DEBUG  ]  14 POT                 :   329 atoms
+[DEBUG  ]  15 CLA                 :   320 atoms
+[DEBUG  ]  16 TIP3                : 336744 atoms
+[DEBUG  ]  17 Protein             :  7500 atoms
+[DEBUG  ]  18 Protein-H           :  3835 atoms
+[DEBUG  ]  19 C-alpha             :   483 atoms
+[DEBUG  ]  20 Backbone            :  1449 atoms
+[DEBUG  ]  21 MainChain           :  1930 atoms
+[DEBUG  ]  22 MainChain+Cb        :  2387 atoms
+[DEBUG  ]  23 MainChain+H         :  2395 atoms
+[DEBUG  ]  24 SideChain           :  5105 atoms
+[DEBUG  ]  25 SideChain-H         :  1905 atoms
+[DEBUG  ]  26 Prot-Masses         :  7500 atoms
+[DEBUG  ]  27 non-Protein         : 337393 atoms
+[DEBUG  ]  28 Other               : 337393 atoms
+[DEBUG  ]  29 POT                 :   329 atoms
+[DEBUG  ]  30 CLA                 :   320 atoms
+[DEBUG  ]  31 TIP3                : 336744 atoms
+[DEBUG  ] 
+[DEBUG  ]  nr : group      '!': not  'name' nr name   'splitch' nr    Enter: list groups
+[DEBUG  ]  'a': atom       '&': and  'del' nr         'splitres' nr   'l': list residues
+[DEBUG  ]  't': atom type  '|': or   'keep' nr        'splitat' nr    'h': help
+[DEBUG  ]  'r': residue              'res' nr         'chain' char
+[DEBUG  ]  "name": group             'case': case sensitive           'q': save and quit
+[DEBUG  ]  'ri': residue index
+[DEBUG  ] 
+[DEBUG  ] > 
+[DEBUG  ] 
+[DEBUG  ] > 
+[DEBUG  ] 
+[DEBUG  ] > 
+[DEBUG  ] Copied index group 1 'GMXMMPBSA_REC'
+[DEBUG  ] Copied index group 2 'GMXMMPBSA_LIG'
+[DEBUG  ] Merged two groups with OR: 5847 1653 -> 7500
+[DEBUG  ] 
+[DEBUG  ] > 
+[INFO   ] Normal Complex: Saving group Protein1_Protein2 (1_2) in _GMXMMPBSA_COM_index.ndx file as _GMXMMPBSA_COM.pdb
+[DEBUG  ] Running command: echo -e "GMXMMPBSA_REC_GMXMMPBSA_LIG"| /root/miniconda3/bin/gmx trjconv -f fixed.trr -s step5_1.tpr -o _GMXMMPBSA_COM.pdb -n _GMXMMPBSA_COM_index.ndx -dump 0
+[DEBUG  ]                :-) GROMACS - gmx trjconv, 2024.3-conda_forge (-:
+[DEBUG  ] 
+[DEBUG  ] Executable:   /root/miniconda3/bin.AVX2_256/gmx
+[DEBUG  ] Data prefix:  /root/miniconda3
+[DEBUG  ] Working dir:  /content/drive/MyDrive/MD/PS1QTY/mmpbsa/bold2
+[DEBUG  ] Command line:
+[DEBUG  ]   gmx trjconv -f fixed.trr -s step5_1.tpr -o _GMXMMPBSA_COM.pdb -n _GMXMMPBSA_COM_index.ndx -dump 0
+[DEBUG  ] 
+[DEBUG  ] Will write pdb: Protein data bank file
+[DEBUG  ] Reading file step5_1.tpr, VERSION 2024.3 (single precision)
+[DEBUG  ] Reading file step5_1.tpr, VERSION 2024.3 (single precision)
+[DEBUG  ] Group     0 (         System) has 344893 elements
+[DEBUG  ] Group     1 (  GMXMMPBSA_REC) has  5847 elements
+[DEBUG  ] Group     2 (  GMXMMPBSA_LIG) has  1653 elements
+[DEBUG  ] Group     3 (      Protein-H) has  3835 elements
+[DEBUG  ] Group     4 (        C-alpha) has   483 elements
+[DEBUG  ] Group     5 (       Backbone) has  1449 elements
+[DEBUG  ] Group     6 (      MainChain) has  1930 elements
+[DEBUG  ] Group     7 (   MainChain+Cb) has  2387 elements
+[DEBUG  ] Group     8 (    MainChain+H) has  2395 elements
+[DEBUG  ] Group     9 (      SideChain) has  5105 elements
+[DEBUG  ] Group    10 (    SideChain-H) has  1905 elements
+[DEBUG  ] Group    11 (    Prot-Masses) has  7500 elements
+[DEBUG  ] Group    12 (    non-Protein) has 337393 elements
+[DEBUG  ] Group    13 (          Other) has 337393 elements
+[DEBUG  ] Group    14 (            POT) has   329 elements
+[DEBUG  ] Group    15 (            CLA) has   320 elements
+[DEBUG  ] Group    16 (           TIP3) has 336744 elements
+[DEBUG  ] Group    17 (        Protein) has  7500 elements
+[DEBUG  ] Group    18 (      Protein-H) has  3835 elements
+[DEBUG  ] Group    19 (        C-alpha) has   483 elements
+[DEBUG  ] Group    20 (       Backbone) has  1449 elements
+[DEBUG  ] Group    21 (      MainChain) has  1930 elements
+[DEBUG  ] Group    22 (   MainChain+Cb) has  2387 elements
+[DEBUG  ] Group    23 (    MainChain+H) has  2395 elements
+[DEBUG  ] Group    24 (      SideChain) has  5105 elements
+[DEBUG  ] Group    25 (    SideChain-H) has  1905 elements
+[DEBUG  ] Group    26 (    Prot-Masses) has  7500 elements
+[DEBUG  ] Group    27 (    non-Protein) has 337393 elements
+[DEBUG  ] Group    28 (          Other) has 337393 elements
+[DEBUG  ] Group    29 (            POT) has   329 elements
+[DEBUG  ] Group    30 (            CLA) has   320 elements
+[DEBUG  ] Group    31 (           TIP3) has 336744 elements
+[DEBUG  ] Group    32 (GMXMMPBSA_REC_GMXMMPBSA_LIG) has  7500 elements
+[DEBUG  ] Select a group: trr version: GMX_trn_file (single precision)
+[DEBUG  ] Reading frame       0 time    0.000   Reading frame       1 time  500.000   
+[DEBUG  ] Dumping frame at t= 0 ps
+[DEBUG  ] Last written: frame      0 time    0.000
+[DEBUG  ] 
+[DEBUG  ] 
+[DEBUG  ] GROMACS reminds you: "There is no place like ~" (Anonymous)
+[DEBUG  ] 
+[DEBUG  ] Note that major changes are planned in future for trjconv, to improve usability and utility.
+[DEBUG  ] Select group for output
+[DEBUG  ] Selected 32: 'GMXMMPBSA_REC_GMXMMPBSA_LIG'
+[INFO   ] No receptor structure file was defined. Using ST approach...
+[INFO   ] Using receptor structure from complex to generate AMBER topology
+[INFO   ] Normal Receptor: Saving group Protein1 (1) in _GMXMMPBSA_COM_index.ndx file as _GMXMMPBSA_REC.pdb
+[DEBUG  ] Running command: echo -e "1"| /root/miniconda3/bin/gmx trjconv -f fixed.trr -s step5_1.tpr -o _GMXMMPBSA_REC.pdb -n _GMXMMPBSA_COM_index.ndx -dump 0
+[DEBUG  ]                :-) GROMACS - gmx trjconv, 2024.3-conda_forge (-:
+[DEBUG  ] 
+[DEBUG  ] Executable:   /root/miniconda3/bin.AVX2_256/gmx
+[DEBUG  ] Data prefix:  /root/miniconda3
+[DEBUG  ] Working dir:  /content/drive/MyDrive/MD/PS1QTY/mmpbsa/bold2
+[DEBUG  ] Command line:
+[DEBUG  ]   gmx trjconv -f fixed.trr -s step5_1.tpr -o _GMXMMPBSA_REC.pdb -n _GMXMMPBSA_COM_index.ndx -dump 0
+[DEBUG  ] 
+[DEBUG  ] Will write pdb: Protein data bank file
+[DEBUG  ] Reading file step5_1.tpr, VERSION 2024.3 (single precision)
+[DEBUG  ] Reading file step5_1.tpr, VERSION 2024.3 (single precision)
+[DEBUG  ] Group     0 (         System) has 344893 elements
+[DEBUG  ] Group     1 (  GMXMMPBSA_REC) has  5847 elements
+[DEBUG  ] Group     2 (  GMXMMPBSA_LIG) has  1653 elements
+[DEBUG  ] Group     3 (      Protein-H) has  3835 elements
+[DEBUG  ] Group     4 (        C-alpha) has   483 elements
+[DEBUG  ] Group     5 (       Backbone) has  1449 elements
+[DEBUG  ] Group     6 (      MainChain) has  1930 elements
+[DEBUG  ] Group     7 (   MainChain+Cb) has  2387 elements
+[DEBUG  ] Group     8 (    MainChain+H) has  2395 elements
+[DEBUG  ] Group     9 (      SideChain) has  5105 elements
+[DEBUG  ] Group    10 (    SideChain-H) has  1905 elements
+[DEBUG  ] Group    11 (    Prot-Masses) has  7500 elements
+[DEBUG  ] Group    12 (    non-Protein) has 337393 elements
+[DEBUG  ] Group    13 (          Other) has 337393 elements
+[DEBUG  ] Group    14 (            POT) has   329 elements
+[DEBUG  ] Group    15 (            CLA) has   320 elements
+[DEBUG  ] Group    16 (           TIP3) has 336744 elements
+[DEBUG  ] Group    17 (        Protein) has  7500 elements
+[DEBUG  ] Group    18 (      Protein-H) has  3835 elements
+[DEBUG  ] Group    19 (        C-alpha) has   483 elements
+[DEBUG  ] Group    20 (       Backbone) has  1449 elements
+[DEBUG  ] Group    21 (      MainChain) has  1930 elements
+[DEBUG  ] Group    22 (   MainChain+Cb) has  2387 elements
+[DEBUG  ] Group    23 (    MainChain+H) has  2395 elements
+[DEBUG  ] Group    24 (      SideChain) has  5105 elements
+[DEBUG  ] Group    25 (    SideChain-H) has  1905 elements
+[DEBUG  ] Group    26 (    Prot-Masses) has  7500 elements
+[DEBUG  ] Group    27 (    non-Protein) has 337393 elements
+[DEBUG  ] Group    28 (          Other) has 337393 elements
+[DEBUG  ] Group    29 (            POT) has   329 elements
+[DEBUG  ] Group    30 (            CLA) has   320 elements
+[DEBUG  ] Group    31 (           TIP3) has 336744 elements
+[DEBUG  ] Group    32 (GMXMMPBSA_REC_GMXMMPBSA_LIG) has  7500 elements
+[DEBUG  ] Select a group: trr version: GMX_trn_file (single precision)
+[DEBUG  ] Reading frame       0 time    0.000   Reading frame       1 time  500.000   
+[DEBUG  ] Dumping frame at t= 0 ps
+[DEBUG  ] Last written: frame      0 time    0.000
+[DEBUG  ] 
+[DEBUG  ] 
+[DEBUG  ] GROMACS reminds you: "The loveliest theories are being overthrown by these damned experiments; it is no fun being a chemist any more." (Justus von Liebig, letter to J.J. Berzelius 1834)
+[DEBUG  ] 
+[DEBUG  ] Note that major changes are planned in future for trjconv, to improve usability and utility.
+[DEBUG  ] Select group for output
+[DEBUG  ] Selected 1: 'GMXMMPBSA_REC'
+[INFO   ] No ligand structure file was defined. Using ST approach...
+[INFO   ] Using ligand structure from complex to generate AMBER topology
+[INFO   ] Normal Ligand: Saving group Protein2 (2) in _GMXMMPBSA_COM_index.ndx file as _GMXMMPBSA_LIG.pdb
+[DEBUG  ] Running command: echo -e "2"| /root/miniconda3/bin/gmx trjconv -f fixed.trr -s step5_1.tpr -o _GMXMMPBSA_LIG.pdb -n _GMXMMPBSA_COM_index.ndx -dump 0
+[DEBUG  ]                :-) GROMACS - gmx trjconv, 2024.3-conda_forge (-:
+[DEBUG  ] 
+[DEBUG  ] Executable:   /root/miniconda3/bin.AVX2_256/gmx
+[DEBUG  ] Data prefix:  /root/miniconda3
+[DEBUG  ] Working dir:  /content/drive/MyDrive/MD/PS1QTY/mmpbsa/bold2
+[DEBUG  ] Command line:
+[DEBUG  ]   gmx trjconv -f fixed.trr -s step5_1.tpr -o _GMXMMPBSA_LIG.pdb -n _GMXMMPBSA_COM_index.ndx -dump 0
+[DEBUG  ] 
+[DEBUG  ] Will write pdb: Protein data bank file
+[DEBUG  ] Reading file step5_1.tpr, VERSION 2024.3 (single precision)
+[DEBUG  ] Reading file step5_1.tpr, VERSION 2024.3 (single precision)
+[DEBUG  ] Group     0 (         System) has 344893 elements
+[DEBUG  ] Group     1 (  GMXMMPBSA_REC) has  5847 elements
+[DEBUG  ] Group     2 (  GMXMMPBSA_LIG) has  1653 elements
+[DEBUG  ] Group     3 (      Protein-H) has  3835 elements
+[DEBUG  ] Group     4 (        C-alpha) has   483 elements
+[DEBUG  ] Group     5 (       Backbone) has  1449 elements
+[DEBUG  ] Group     6 (      MainChain) has  1930 elements
+[DEBUG  ] Group     7 (   MainChain+Cb) has  2387 elements
+[DEBUG  ] Group     8 (    MainChain+H) has  2395 elements
+[DEBUG  ] Group     9 (      SideChain) has  5105 elements
+[DEBUG  ] Group    10 (    SideChain-H) has  1905 elements
+[DEBUG  ] Group    11 (    Prot-Masses) has  7500 elements
+[DEBUG  ] Group    12 (    non-Protein) has 337393 elements
+[DEBUG  ] Group    13 (          Other) has 337393 elements
+[DEBUG  ] Group    14 (            POT) has   329 elements
+[DEBUG  ] Group    15 (            CLA) has   320 elements
+[DEBUG  ] Group    16 (           TIP3) has 336744 elements
+[DEBUG  ] Group    17 (        Protein) has  7500 elements
+[DEBUG  ] Group    18 (      Protein-H) has  3835 elements
+[DEBUG  ] Group    19 (        C-alpha) has   483 elements
+[DEBUG  ] Group    20 (       Backbone) has  1449 elements
+[DEBUG  ] Group    21 (      MainChain) has  1930 elements
+[DEBUG  ] Group    22 (   MainChain+Cb) has  2387 elements
+[DEBUG  ] Group    23 (    MainChain+H) has  2395 elements
+[DEBUG  ] Group    24 (      SideChain) has  5105 elements
+[DEBUG  ] Group    25 (    SideChain-H) has  1905 elements
+[DEBUG  ] Group    26 (    Prot-Masses) has  7500 elements
+[DEBUG  ] Group    27 (    non-Protein) has 337393 elements
+[DEBUG  ] Group    28 (          Other) has 337393 elements
+[DEBUG  ] Group    29 (            POT) has   329 elements
+[DEBUG  ] Group    30 (            CLA) has   320 elements
+[DEBUG  ] Group    31 (           TIP3) has 336744 elements
+[DEBUG  ] Group    32 (GMXMMPBSA_REC_GMXMMPBSA_LIG) has  7500 elements
+[DEBUG  ] Select a group: trr version: GMX_trn_file (single precision)
+[DEBUG  ] Reading frame       0 time    0.000   Reading frame       1 time  500.000   
+[DEBUG  ] Dumping frame at t= 0 ps
+[DEBUG  ] Last written: frame      0 time    0.000
+[DEBUG  ] 
+[DEBUG  ] 
+[DEBUG  ] GROMACS reminds you: "UNIX is basically a simple operating system. It just takes a genius to understand its simplicity." (Dennis Ritchie)
+[DEBUG  ] 
+[DEBUG  ] Note that major changes are planned in future for trjconv, to improve usability and utility.
+[DEBUG  ] Select group for output
+[DEBUG  ] Selected 2: 'GMXMMPBSA_LIG'
+[INFO   ] Checking the structures consistency...
+[INFO   ] 
+[INFO   ] Using topology conversion. Setting radiopt = 0...
+[INFO   ] Building Normal Complex Amber topology...
+[INFO   ] Detected CHARMM force field topology format...
+[INFO   ] Assigning PBRadii mbondi2 to Complex...
+[INFO   ] Writing Normal Complex AMBER topology...
+[INFO   ] No Receptor topology file was defined. Using ST approach...
+[INFO   ] Building AMBER Receptor topology from Complex...
+[INFO   ] Assigning PBRadii mbondi2 to Receptor...
+[INFO   ] Writing Normal Receptor AMBER topology...
+[INFO   ] No Ligand topology file was defined. Using ST approach...
+[INFO   ] Building AMBER Ligand topology from Complex...
+[INFO   ] Assigning PBRadii mbondi2 to Ligand...
+[INFO   ] Writing Normal Ligand AMBER topology...
+[INFO   ] Selecting residues by distance (4 Å) between receptor and ligand for decomposition analysis...
+[INFO   ] Selected 118 residues:
+R:A:ALA:1   R:A:LEU:35  R:A:ILE:36  R:A:TYR:37  R:A:MET:61  R:A:THR:64  R:A:ILE:65  R:A:MET:68  R:A:THR:69  R:A:GLN:71
+R:A:LEU:72  R:A:ILE:84  R:A:TRP:87  R:A:LEU:88  R:A:SER:91  R:A:SER:92  R:A:LEU:94  R:A:GLN:95  R:A:PHE:98  R:A:TYR:99
+R:A:MET:155 R:A:VAL:158 R:A:PHE:159 R:A:TYR:162 R:A:LEU:163 R:A:THR:171 R:A:THR:175 R:A:TYR:178 R:A:ASP:179 R:A:VAL:183
+R:A:LEU:190 R:A:GLN:193 R:A:VAL:194 R:A:GLU:195 R:A:GLN:198 R:A:GLU:199 R:A:ASN:201 R:A:GLU:202 R:A:THR:203 R:A:LEU:204
+R:A:PHE:205 R:A:LEU:208 R:A:ILE:209 R:A:THR:213 R:A:SER:288 R:A:GLU:298 R:A:ARG:299 R:A:GLY:300 R:A:VAL:301 R:A:LYS:302
+R:A:GLN:303 R:A:GLY:304 R:A:LEU:305 R:A:GLY:306 R:A:ASP:307 R:A:THR:309 R:A:PHE:310 R:A:THR:334 R:A:THR:338 R:A:CYS:341
+R:A:GLN:342 R:A:GLN:345 R:A:GLN:346 R:A:LEU:347 R:A:ALA:348 R:A:THR:349 R:A:LYS:351 R:A:LYS:352 R:A:ALA:353 R:A:LEU:354
+R:A:PRO:355 R:A:GLN:357 R:A:TYR:367 R:A:THR:375 R:A:PHE:378 R:A:MET:379 L:B:GLY:14  L:B:ALA:15  L:B:GLY:18  L:B:VAL:25
+L:B:ILE:26  L:B:VAL:29  L:B:ILE:32  L:B:THR:33  L:B:MET:36  L:B:LEU:37  L:B:LYS:39  L:B:LYS:40  L:B:GLU:60  L:B:ARG:61
+L:B:HSD:62  L:B:LEU:63  L:B:SER:64  L:B:LYS:65  L:B:MET:66  L:B:GLN:67  L:B:GLN:68  L:B:ASN:69  L:B:GLY:70  L:B:TYR:71
+L:B:GLU:72  L:B:ASN:73  L:B:PRO:74  L:B:THR:75  L:B:TYR:76  L:B:LYS:77  L:B:PHE:78  L:B:PHE:79  L:B:GLU:80  L:B:GLN:81
+L:B:MET:82  L:B:GLN:83  L:B:ASN:84  L:B:GLU:85  L:B:GLN:86  L:B:LYS:87  L:B:LEU:88  L:B:ILE:89
+
+[INFO   ] Cleaning normal complex trajectories...
+[DEBUG  ] Running command: echo -e "GMXMMPBSA_REC_GMXMMPBSA_LIG"| /root/miniconda3/bin/gmx trjconv -f fixed.trr -s step5_1.tpr -o COM_traj_0.xtc -n _GMXMMPBSA_COM_index.ndx
+[DEBUG  ]                :-) GROMACS - gmx trjconv, 2024.3-conda_forge (-:
+[DEBUG  ] 
+[DEBUG  ] Executable:   /root/miniconda3/bin.AVX2_256/gmx
+[DEBUG  ] Data prefix:  /root/miniconda3
+[DEBUG  ] Working dir:  /content/drive/MyDrive/MD/PS1QTY/mmpbsa/bold2
+[DEBUG  ] Command line:
+[DEBUG  ]   gmx trjconv -f fixed.trr -s step5_1.tpr -o COM_traj_0.xtc -n _GMXMMPBSA_COM_index.ndx
+[DEBUG  ] 
+[DEBUG  ] Will write xtc: Compressed trajectory (portable xdr format): xtc
+[DEBUG  ] Reading file step5_1.tpr, VERSION 2024.3 (single precision)
+[DEBUG  ] Reading file step5_1.tpr, VERSION 2024.3 (single precision)
+[DEBUG  ] Group     0 (         System) has 344893 elements
+[DEBUG  ] Group     1 (  GMXMMPBSA_REC) has  5847 elements
+[DEBUG  ] Group     2 (  GMXMMPBSA_LIG) has  1653 elements
+[DEBUG  ] Group     3 (      Protein-H) has  3835 elements
+[DEBUG  ] Group     4 (        C-alpha) has   483 elements
+[DEBUG  ] Group     5 (       Backbone) has  1449 elements
+[DEBUG  ] Group     6 (      MainChain) has  1930 elements
+[DEBUG  ] Group     7 (   MainChain+Cb) has  2387 elements
+[DEBUG  ] Group     8 (    MainChain+H) has  2395 elements
+[DEBUG  ] Group     9 (      SideChain) has  5105 elements
+[DEBUG  ] Group    10 (    SideChain-H) has  1905 elements
+[DEBUG  ] Group    11 (    Prot-Masses) has  7500 elements
+[DEBUG  ] Group    12 (    non-Protein) has 337393 elements
+[DEBUG  ] Group    13 (          Other) has 337393 elements
+[DEBUG  ] Group    14 (            POT) has   329 elements
+[DEBUG  ] Group    15 (            CLA) has   320 elements
+[DEBUG  ] Group    16 (           TIP3) has 336744 elements
+[DEBUG  ] Group    17 (        Protein) has  7500 elements
+[DEBUG  ] Group    18 (      Protein-H) has  3835 elements
+[DEBUG  ] Group    19 (        C-alpha) has   483 elements
+[DEBUG  ] Group    20 (       Backbone) has  1449 elements
+[DEBUG  ] Group    21 (      MainChain) has  1930 elements
+[DEBUG  ] Group    22 (   MainChain+Cb) has  2387 elements
+[DEBUG  ] Group    23 (    MainChain+H) has  2395 elements
+[DEBUG  ] Group    24 (      SideChain) has  5105 elements
+[DEBUG  ] Group    25 (    SideChain-H) has  1905 elements
+[DEBUG  ] Group    26 (    Prot-Masses) has  7500 elements
+[DEBUG  ] Group    27 (    non-Protein) has 337393 elements
+[DEBUG  ] Group    28 (          Other) has 337393 elements
+[DEBUG  ] Group    29 (            POT) has   329 elements
+[DEBUG  ] Group    30 (            CLA) has   320 elements
+[DEBUG  ] Group    31 (           TIP3) has 336744 elements
+[DEBUG  ] Group    32 (GMXMMPBSA_REC_GMXMMPBSA_LIG) has  7500 elements
+[DEBUG  ] Select a group: trr version: GMX_trn_file (single precision)
+[DEBUG  ] Reading frame       0 time    0.000   
+[DEBUG  ] Setting output precision to 0.001 (nm)
+[DEBUG  ] Reading frame       1 time  500.000    ->  frame      0 time    0.000      Reading frame       2 time 1000.000    ->  frame      1 time  500.000      Reading frame       3 time 1500.000    ->  frame      2 time 1000.000      Reading frame       4 time 2000.000    ->  frame      3 time 1500.000      Reading frame       5 time 2500.000    ->  frame      4 time 2000.000      Reading frame       6 time 3000.000    ->  frame      5 time 2500.000      Reading frame       7 time 3500.000    ->  frame      6 time 3000.000      Reading frame       8 time 4000.000    ->  frame      7 time 3500.000      Reading frame       9 time 4500.000    ->  frame      8 time 4000.000      Reading frame      10 time 5000.000    ->  frame      9 time 4500.000      Reading frame      11 time 5500.000    ->  frame     10 time 5000.000      Reading frame      12 time 6000.000    ->  frame     11 time 5500.000      Reading frame      13 time 6500.000    ->  frame     12 time 6000.000      Reading frame      14 time 7000.000    ->  frame     13 time 6500.000      Reading frame      15 time 7500.000    ->  frame     14 time 7000.000      Reading frame      16 time 8000.000    ->  frame     15 time 7500.000      Reading frame      17 time 8500.000    ->  frame     16 time 8000.000      Reading frame      18 time 9000.000    ->  frame     17 time 8500.000      Reading frame      19 time 9500.000    ->  frame     18 time 9000.000      Reading frame      20 time 10000.000    ->  frame     19 time 9500.000      Reading frame      30 time 15000.000    ->  frame     29 time 14500.000      Reading frame      40 time 20000.000    ->  frame     39 time 19500.000      Reading frame      50 time 25000.000    ->  frame     49 time 24500.000      Reading frame      60 time 30000.000    ->  frame     59 time 29500.000      Reading frame      70 time 35000.000    ->  frame     69 time 34500.000      Reading frame      80 time 40000.000    ->  frame     79 time 39500.000      Reading frame      90 time 45000.000    ->  frame     89 time 44500.000      Reading frame     100 time 50000.000    ->  frame     99 time 49500.000      Reading frame     110 time 55000.000    ->  frame    109 time 54500.000      Reading frame     120 time 60000.000    ->  frame    119 time 59500.000      Reading frame     130 time 65000.000    ->  frame    129 time 64500.000      Reading frame     140 time 70000.000    ->  frame    139 time 69500.000      Reading frame     150 time 75000.000    ->  frame    149 time 74500.000      Reading frame     160 time 80000.000    ->  frame    159 time 79500.000      Reading frame     170 time 85000.000    ->  frame    169 time 84500.000      Reading frame     180 time 90000.000    ->  frame    179 time 89500.000      Reading frame     190 time 95000.000    ->  frame    189 time 94500.000      Reading frame     200 time 100000.000    ->  frame    199 time 99500.000      Reading frame     300 time 150000.000    ->  frame    299 time 149500.000      Reading frame     400 time 200000.000    ->  frame    399 time 199500.000      Reading frame     500 time 250000.000    ->  frame    499 time 249500.000      Last frame        500 time 250000.000   
+[DEBUG  ] Last written: frame    500 time 250000.000
+[DEBUG  ] 
+[DEBUG  ] 
+[DEBUG  ] GROMACS reminds you: "It is not critical to add the next quote to a patch release" (Paul Bauer)
+[DEBUG  ] 
+[DEBUG  ] Note that major changes are planned in future for trjconv, to improve usability and utility.
+[DEBUG  ] Select group for output
+[DEBUG  ] Selected 32: 'GMXMMPBSA_REC_GMXMMPBSA_LIG'
+[INFO   ] Building AMBER topologies from GROMACS files... Done.
+
+[INFO   ] Loading and checking parameter files for compatibility...
+[INFO   ] Preparing trajectories for simulation...
+
+[INFO   ] 500 frames were processed by cpptraj for use in calculation.
+[INFO   ] Starting calculations in 2 CPUs...
+[INFO   ] Running calculations on normal system...
+[INFO   ] Beginning GB calculations with /root/miniconda3/envs/gmxMMPBSA/bin/sander
+[INFO   ]   calculating complex contribution...
+[INFO   ]   calculating receptor contribution...
+[INFO   ]   calculating ligand contribution...
+[INFO   ] Parsing results to output files...
+
+[INFO   ] Timing:
+[INFO   ] Total GROMACS setup time:                   0.035 hr.
+[INFO   ] Total AMBER setup time:                     0.000 hr.
+[INFO   ] Creating trajectories with cpptraj:         0.002 hr.
+[INFO   ] Total calculation time:                     1.707 hr.
+[INFO   ] Total GB calculation time:                  1.701 hr.
+[INFO   ] Statistics calculation & output writing:    0.003 hr.
+[INFO   ] Total time taken:                           1.748 hr.
+
+[INFO   ] 
+   Finalizing gmx_MMPBSA: [ERROR  ] = 0; [WARNING] = 0
+   Check the gmx_MMPBSA.log file for more details...
+
+[INFO   ] 
+ Thank you for using gmx_MMPBSA. Please consider supporting gmx_MMPBSA by citing our publication:
+    Valdés-Tresanco, M.S., Valdés-Tresanco, M.E., Valiente, P.A. and Moreno E. 
+    gmx_MMPBSA: A New Tool to Perform End-State Free Energy Calculations with GROMACS. 
+    J Chem Theory Comput., 2021, 17 (10):6281-6291. Epub 2021 Sep 29. PMID: 34586825.
+    https://pubs.acs.org/doi/10.1021/acs.jctc.1c00645
+
+Also consider citing MMPBSA.py:
+    Miller III, B. R., McGee Jr., T. D., Swails, J. M. Homeyer, N. Gohlke, H. and Roitberg, A. E.
+    MMPBSA.py: An Efficient Program for End-State Free Energy Calculations.
+    J. Chem. Theory Comput., 2012, 8 (9) pp 3314-3321
+
+[INFO   ] Opening gmx_MMPBSA_ana to analyze results...
+
+[ERROR  ] Unable to start gmx_MMPBSA_ana...
+[INFO   ] Finalized...
